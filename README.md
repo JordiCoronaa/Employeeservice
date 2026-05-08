@@ -30,6 +30,7 @@ REST API developed with Spring Boot for employee management.
 - Input validations
 - API documentation
 - Health check endpoints
+- Colection postman
 
 ---
 
