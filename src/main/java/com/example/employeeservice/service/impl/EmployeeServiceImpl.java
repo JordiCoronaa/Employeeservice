@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.example.employeeservice.util.Constants.*;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -24,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeResponse createEmployee(EmployeeRequest request) {
 
-        log.info("Creating employee with firstName: {}", request.getFirstName());
+        log.info(CREATING_EMPLOYEE, request.getFirstName());
 
         Employee employee = EmployeeMapper.toEntity(request);
 
@@ -36,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeResponse> getAllEmployees() {
 
-        log.info("Fetching all employees");
+        log.info(FETCHING_ALL_EMPLOYEES);
 
         return employeeRepository.findAll()
                 .stream()
@@ -47,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeResponse getEmployeeById(Long id) {
 
-        log.info("Fetching employee by id: {}", id);
+        log.info(FETCHING_EMPLOYEE_BY_ID, id);
 
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() ->
@@ -59,7 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeResponse> searchEmployeesByName(String name) {
 
-        log.info("Searching employees by name: {}", name);
+        log.info(SEARCHING_EMPLOYEES, name);
 
         return employeeRepository
                 .findByFirstNameContainingIgnoreCase(name)
@@ -71,7 +73,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeResponse updateEmployee(Long id, EmployeeRequest request) {
 
-        log.info("Updating employee with id: {}", id);
+        log.info(UPDATING_EMPLOYEE, id);
 
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() ->
@@ -95,7 +97,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(Long id) {
 
-        log.info("Deleting employee with id: {}", id);
+        log.info(DELETING_EMPLOYEE, id);
 
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() ->
@@ -103,14 +105,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         employeeRepository.delete(employee);
 
-        log.info("Employee deleted successfully with id: {}", id);
+        log.info(EMPLOYEE_DELETED, id);
     }
 
     @Override
     public List<EmployeeResponse> createEmployees(
             List<EmployeeRequest> requests) {
 
-        log.info("Creating multiple employees. Total: {}", requests.size());
+        log.info(CREATING_MULTIPLE_EMPLOYEES, requests.size());
 
         List<Employee> employees = requests.stream()
                 .map(EmployeeMapper::toEntity)
