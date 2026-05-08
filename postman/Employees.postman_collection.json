@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "b78e5687-bdd3-4a7c-8895-6c62cf802837",
+    "name": "Employees",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21581872"
+  },
+  "item": [
+    {
+      "name": "/employees",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Juan\",\r\n  \"middleName\": \"juan\",\r\n  \"lastName\": \"Lopez\",\r\n  \"motherLastName\": \"Lopez\",\r\n  \"age\": 30,\r\n  \"gender\": \"MALE\",\r\n  \"birthDate\": \"22-08-1995\",\r\n  \"position\": \"Backend Developer\",\r\n  \"active\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees/{id}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees/{id}",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Jordi Updated\",\r\n    \"middleName\": \"Antonio\",\r\n    \"lastName\": \"Corona\",\r\n    \"motherLastName\": \"Lopez\",\r\n    \"age\": 36,\r\n    \"gender\": \"MALE\",\r\n    \"birthDate\": \"15-08-1990\",\r\n    \"position\": \"Senior Backend Developer\",\r\n    \"active\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees/search{name}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees/search?name=jordi",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "jordi"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/employees/batch",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n  {\r\n    \"firstName\": \"Juan\",\r\n    \"middleName\": \"Antonio\",\r\n    \"lastName\": \"Corona\",\r\n    \"motherLastName\": \"Lopez\",\r\n    \"age\": 28,\r\n    \"gender\": \"MALE\",\r\n    \"birthDate\": \"15-08-1997\",\r\n    \"position\": \"Backend Developer\",\r\n    \"active\": true\r\n  },\r\n  {\r\n    \"firstName\": \"Ana\",\r\n    \"middleName\": \"Maria\",\r\n    \"lastName\": \"Perez\",\r\n    \"motherLastName\": \"Gomez\",\r\n    \"age\": 30,\r\n    \"gender\": \"FEMALE\",\r\n    \"birthDate\": \"10-01-1995\",\r\n    \"position\": \"QA Engineer\",\r\n    \"active\": true\r\n  }\r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/employees/batch",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "batch"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
